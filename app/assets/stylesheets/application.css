@@ -13,3 +13,24 @@
  *= require_tree .
  *= require_self
  */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.fw-black { font-weight: 900; }
+
+.hover-shadow:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 1rem 3rem rgba(0,0,0,.1) !important;
+}
+
+.transition {
+  transition: all 0.3s ease;
+}
+
+.last-child-border-0:last-child {
+  border-bottom: 0 !important;
+}

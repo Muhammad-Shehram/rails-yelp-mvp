@@ -1,0 +1,26 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h1 class="fw-black">Explore Restaurants</h1>
+</div>
+
+<div class="row g-4">
+  <% @restaurants.each do |restaurant| %>
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card h-100 border-0 shadow-sm rounded-4 hover-shadow transition">
+        <div class="card-body p-4">
+          <span class="badge bg-secondary-subtle text-secondary rounded-pill mb-2 px-3 py-2">
+            <%= restaurant.category %>
+          </span>
+          <h3 class="h5 fw-bold mb-1"><%= restaurant.name %></h3>
+          <p class="text-muted small mb-3"><%= restaurant.address %></p>
+
+          <div class="d-flex justify-content-between align-items-center mt-auto pt-3 border-top">
+            <span class="text-warning fw-bold small">
+              ★ <%= restaurant.reviews.any? ? (restaurant.reviews.average(:rating)).round : "No ratings" %>
+            </span>
+            <%= link_to "View Details", restaurant_path(restaurant), class: "btn btn-primary btn-sm rounded-pill px-3" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

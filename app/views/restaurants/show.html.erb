@@ -1,0 +1,25 @@
+<div class="row justify-content-center">
+  <div class="col-lg-8">
+    <div class="mb-5">
+      <%= link_to "← Back to list", restaurants_path, class: "text-decoration-none text-muted small" %>
+      <h1 class="display-5 fw-black mt-2"><%= @restaurant.name %></h1>
+      <p class="lead text-secondary"><%= @restaurant.address %> • <span class="text-dark"><%= @restaurant.phone_number %></span></p>
+      <span class="badge bg-dark rounded-pill px-4 py-2"><%= @restaurant.category %></span>
+    </div>
+
+    <div class="card border-0 shadow-sm rounded-4 p-4 mb-4">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="h4 fw-bold mb-0">Reviews</h2>
+        <%= link_to "Write a Review", new_restaurant_review_path(@restaurant), class: "btn btn-dark btn-sm rounded-pill" %>
+      </div>
+
+      <% if @restaurant.reviews.any? %>
+        <div class="list-group list-group-flush">
+          <%= render @restaurant.reviews %>
+        </div>
+      <% else %>
+        <p class="text-muted italic py-4 text-center">No reviews yet. Be the first to share your experience!</p>
+      <% end %>
+    </div>
+  </div>
+</div>
